@@ -35,6 +35,8 @@ void Container::get_parcel(Parcel parc)
 	this->kol_vo_parcel = kol_vo_parcel + 1;
 }
 
+
+
 //проверка свободного объема в контейнере
 bool Container::check_free_obem(double obem)
 {
@@ -84,4 +86,12 @@ void Container::print_information_c(int tip)
 vector<Parcel> Container::get_inf_parcel()
 {
 	return this->parce;
+}
+
+void Container::get_cost_cont()
+{
+	for (int i = 0;i < parce.size();i++)
+	{
+		cost = cost + parce[i].get_cost();
+	}
 }

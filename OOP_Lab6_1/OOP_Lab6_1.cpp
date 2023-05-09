@@ -17,7 +17,6 @@
 #include "Agregat_My.h"
 #include "Element_My.h"
 #include <cstdlib>;
-#include "Info_Expert.h"        //информационный эксперт
 
 using namespace std;
 
@@ -91,6 +90,8 @@ int main()
                 {
                     cout << "Контейнер №: " << i + 1 << "\n";
                     container_spisok[i].print_information_c(1);
+                    container_spisok[i].get_cost_cont();        //подсчет стоимости перевозок посылок, содержащихся в контейнере
+                    cout << "\nСтоимость посылок в контейнере: " << container_spisok[i].cost << "\n\n";
                 }
 
 
@@ -159,7 +160,7 @@ int main()
         }
         else if (func == 51)        //просмотр информации о существующих посылках
         {
-            system("cls");
+            system("cls");  //очистка экрана консоли
 
             if (parcel_spisok.size() > 0)
             {
@@ -190,21 +191,16 @@ int main()
                     (*(it.next()))->print_information();
                 }
 
-
-
+                cout << "\n\nНажмите любую клавишу для вывода информации информационного эксперта";
+                _getch();
+                system("cls");  //очистка экрана консоли    
                 //работа информационного эксперта
 
-                Info_Expert *inf_exp = new Info_Expert();
-                
+                cout << "Стоимость перевозки посылок для потребителя (внешняя стоимость)\n\n";
                 for (int i = 0;i < parcel_spisok.size(); i++)
                 {
-                    inf_exp->set_cost(parcel_spisok[i]);        //установка значений
+                    cout << i + 1 << ": " << parcel_spisok[i].get_cost() << "руб\n";        //установка значений
                 }
-
-
-                
-
-
             }
             else
             {

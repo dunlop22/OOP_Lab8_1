@@ -39,6 +39,6 @@ public:
 	//внесение информации о посылке
 	virtual void set_information();
 
-	void get_ves_razmer(double ves[]);
+	double get_cost();
 };
 

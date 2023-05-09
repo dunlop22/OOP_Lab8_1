@@ -10,6 +10,7 @@ void Solver::parcel_to_container(vector<Container>& container_mass, vector<Parce
 
 			container_temp->generate_id();
 			container_temp->get_parcel(parcel_mass[i]);
+			
 			container_mass.push_back(*container_temp);
 		}
 		else

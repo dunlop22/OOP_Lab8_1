@@ -148,7 +148,6 @@
     <ClCompile Include="Danger_Cont.cpp" />
     <ClCompile Include="Decorate_Parcel.cpp" />
     <ClCompile Include="Fly_Trans.cpp" />
-    <ClCompile Include="Info_Expert.cpp" />
     <ClCompile Include="OOP_Lab6_1.cpp" />
     <ClCompile Include="Parcel.cpp" />
     <ClCompile Include="ProxyParcel.cpp" />
@@ -169,7 +168,6 @@
     <ClInclude Include="Decorate_Parcel.h" />
     <ClInclude Include="Element_My.h" />
     <ClInclude Include="Fly_Trans.h" />
-    <ClInclude Include="Info_Expert.h" />
     <ClInclude Include="Iterator_My.h" />
     <ClInclude Include="Parcel.h" />
     <ClInclude Include="ProxyParcel.h" />

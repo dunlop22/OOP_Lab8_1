@@ -16,7 +16,9 @@ class Container
 	vector<Parcel> parce;
 	int kol_vo_parcel = 0;		//Общее количество посылок в контейнере
 	
+
 public:
+	double cost = 0;
 	int vid_transporta;
 	int danger = 0;
 			//1 - автомобильный
@@ -38,6 +40,7 @@ public:
 	virtual int get_id();
 	virtual void print_information_c(int tip);
 	virtual vector<Parcel> get_inf_parcel();
+	void get_cost_cont();
 };
 
 //контейнер делегат транспортное средство

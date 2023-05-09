@@ -115,10 +115,15 @@ void Parcel::set_information()
 
 }
 
-void Parcel::get_ves_razmer(double ves_razmer[])
+double Parcel::get_cost()
 {
-	ves_razmer[0] = this->dlina;
-	ves_razmer[1] = this->shirina;
-	ves_razmer[2] = this->visota;
-	ves_razmer[3] = this->weight;
+	double sum = 0;
+	sum = this->weight * 250;		//стоимость перевозки фактическая	1кг перевозимого груза - 250руб (для перевозчика / фактические расходы на перевозку)
+
+	if (this->dlina > 3 || this->shirina > 3 || this->visota > 3)		//увеличение стоимости отправки на 25%
+	{
+		sum = sum * 1.25;
+	}
+	sum = sum + sum * (0.15 * this->danger);		//установка повышенной нормы для опасного груза
+	return sum;
 }
