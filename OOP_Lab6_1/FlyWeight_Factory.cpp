@@ -22,9 +22,7 @@ FlyWeight& FlyWeight_Factory::get_pismo()
         {
             //легковес существует
             cout << "Ёлемент найден с конечным пунктом " << temp << " найден\n";
-            //return (FlyWeights[i]);
-            FlyWeight* f = new FlyWeight();
-            return *f;
+            return (FlyWeights[i]);
             
         }
     }
