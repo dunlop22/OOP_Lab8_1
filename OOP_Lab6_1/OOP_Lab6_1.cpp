@@ -17,6 +17,7 @@
 #include "Agregat_My.h"
 #include "Element_My.h"
 #include <cstdlib>;
+#include "FlyWeight_Factory.h"
 
 using namespace std;
 
@@ -35,7 +36,13 @@ int main()
         do           //главное меню
         {
             system("cls");
-            cout << "1) Добавить несколько новых посылок\n2) Отправить посылки\n3) Просмотр информации об имеющихся посылках\n4) Поместить посылки в коробки\n5) Адаптер (Букет -> Посылка)\nESC) Выход\n\nОбщее количество посылок на данный момент: " << parcel_spisok.size() << "\nОбщее количество контейнеров на данный момент: " << container_spisok.size() << "\n";
+            cout << "\
+1) Добавить несколько новых посылок\n\
+2) Отправить посылки\n\
+3) Просмотр информации об имеющихся посылках\n\
+4) Поместить посылки в коробки\n\
+5) Создание массовой рассылки (легковес)\n\
+ESC) Выход\n\nОбщее количество посылок на данный момент: " << parcel_spisok.size() << "\nОбщее количество контейнеров на данный момент: " << container_spisok.size() << "\n";
             func = _getch();
         } while (func < 49 || func > 53 && func != 27);
 
@@ -211,7 +218,7 @@ int main()
         }
         else if (func == 52)    //помещение посылок в коробки
         {
-          system("cls");
+            system("cls");      //очистка экрана консоли
             if (parcel_spisok.size() > 0)
             {
                 for (int i = 0;i < parcel_spisok.size(); i++)
@@ -229,8 +236,27 @@ int main()
             cout << "\n\nДля продолжения нажмите любую клавишу\n";
             _getch();
         }
-        else if (func == 53)    //Адаптер Букет -> Посылка
+        
+        //else if (func == 53)    //Адаптер Букет -> Посылка
+        else if (func == 53)        //легковес
         {
+            system("cls");      //очистка экрана консоли
+            FlyWeight_Factory *factory = new FlyWeight_Factory();
+            int nFlyWeight;
+            do
+            {
+                cout << "Введите необходимое количество легковесов: ";
+                cin >> nFlyWeight;
+            } while (nFlyWeight <= 0);
+
+            for (int i = 0;i < nFlyWeight;i++)
+            {
+                FlyWeight Fly = factory->get_pismo();
+            }
+            cout << "\n\nДля продолжения нажмите любую клавишу\n";
+            _getch();
+
+        /*
             system("cls");
             Buketik *buk = new Buketik();//создание объекта
             buk->set_inf();  //установка значений
@@ -243,6 +269,7 @@ int main()
             par_adap->print_information();
             cout << "Нажмите любую клавишу для продолжения";
             _getch();
+            */
         }
         
 

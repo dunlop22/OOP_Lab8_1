@@ -148,6 +148,8 @@
     <ClCompile Include="Danger_Cont.cpp" />
     <ClCompile Include="Decorate_Parcel.cpp" />
     <ClCompile Include="EngLanguage.cpp" />
+    <ClCompile Include="FlyWeight.cpp" />
+    <ClCompile Include="FlyWeight_Factory.cpp" />
     <ClCompile Include="Fly_Trans.cpp" />
     <ClCompile Include="Language.cpp" />
     <ClCompile Include="OOP_Lab6_1.cpp" />
@@ -171,6 +173,8 @@
     <ClInclude Include="Decorate_Parcel.h" />
     <ClInclude Include="Element_My.h" />
     <ClInclude Include="EngLanguage.h" />
+    <ClInclude Include="FlyWeight.h" />
+    <ClInclude Include="FlyWeight_Factory.h" />
     <ClInclude Include="Fly_Trans.h" />
     <ClInclude Include="Iterator_My.h" />
     <ClInclude Include="Language.h" />
