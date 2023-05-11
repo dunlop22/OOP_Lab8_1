@@ -13,6 +13,8 @@ public:
         Parce = Parc;
         sort(korobka.begin(), korobka.end());       //сортировка существующих посылок
     };
+
+
     virtual void print_information();
     virtual void set_information();
 };
