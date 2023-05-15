@@ -39,6 +39,6 @@ public:
 	//внесение информации о посылке
 	virtual void set_information();
 
-	double get_cost();
+	vector <double> get_dimensions();
 };
 

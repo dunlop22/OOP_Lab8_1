@@ -88,6 +88,7 @@ vector<Parcel> Container::get_inf_parcel()
 	return this->parce;
 }
 
+/*
 void Container::get_cost_cont()
 {
 	for (int i = 0;i < parce.size();i++)
@@ -95,3 +96,4 @@ void Container::get_cost_cont()
 		cost = cost + parce[i].get_cost();
 	}
 }
+*/

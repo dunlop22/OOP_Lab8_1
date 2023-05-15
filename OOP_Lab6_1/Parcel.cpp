@@ -115,15 +115,14 @@ void Parcel::set_information()
 
 }
 
-double Parcel::get_cost()
+vector <double> Parcel::get_dimensions()
 {
-	double sum = 0;
-	sum = this->weight * 250;		//стоимость перевозки фактическая	1кг перевозимого груза - 250руб (для перевозчика / фактические расходы на перевозку)
-
-	if (this->dlina > 3 || this->shirina > 3 || this->visota > 3)		//увеличение стоимости отправки на 25%
-	{
-		sum = sum * 1.25;
-	}
-	sum = sum + sum * (0.15 * this->danger);		//установка повышенной нормы для опасного груза
-	return sum;
+	vector <double> dimensions;
+	dimensions.push_back(this->dlina);
+	dimensions.push_back(this->shirina);
+	dimensions.push_back(this->visota);
+	dimensions.push_back(this->danger);
+	dimensions.push_back(this->weight);
+	
+	return dimensions;
 }

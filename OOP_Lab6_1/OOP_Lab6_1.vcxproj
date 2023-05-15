@@ -151,6 +151,7 @@
     <ClCompile Include="FlyWeight.cpp" />
     <ClCompile Include="FlyWeight_Factory.cpp" />
     <ClCompile Include="Fly_Trans.cpp" />
+    <ClCompile Include="Info_Expert.cpp" />
     <ClCompile Include="Language.cpp" />
     <ClCompile Include="OOP_Lab6_1.cpp" />
     <ClCompile Include="Parcel.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="FlyWeight.h" />
     <ClInclude Include="FlyWeight_Factory.h" />
     <ClInclude Include="Fly_Trans.h" />
+    <ClInclude Include="Info_Expert.h" />
     <ClInclude Include="Iterator_My.h" />
     <ClInclude Include="Language.h" />
     <ClInclude Include="Parcel.h" />
