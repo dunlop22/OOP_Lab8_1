@@ -19,6 +19,7 @@
 #include <cstdlib>;
 #include "FlyWeight_Factory.h"
 #include "Info_Expert.h"
+#include "Facade.h"
 
 using namespace std;
 
@@ -49,30 +50,9 @@ ESC) Выход\n\nОбщее количество посылок на данн�
 
         if (func == 49)
         {
-            int new_parcel; ///количество новых посылок
-            do
-            {
-                system("cls");
-                cout << "Введите количество новых посылок: ";
-                cin >> new_parcel;
-            } while (new_parcel < 0);
-            cin.get();
-
-            for (int i = 0; i < new_parcel; i++)
-            {
-                Parcel parce_temp;
-                Parcel* Prox;
-                do
-                {
-                    parce_temp.set_information();
-                    Prox = new ProxyParcel(&parce_temp);
-                //} while (!(Prox->check_info()) || !(Prox->send_parcel()));        //минимальная  проверка. Опасный груз не может быть больше 50усл.ед.
-                } while (!(Prox->check_info()));        //минимальная  проверка. Опасный груз не может быть больше 50усл.ед.
-
-                parcel_spisok.push_back(parce_temp);
-            }
-            num_parcel = num_parcel + new_parcel;       //общее количество посылок (вместе с только что добавленными)
-        }
+            Facade* facad = new Facade();
+            facad->get_new_parcel(parcel_spisok, num_parcel);
+           }
         else if (func == 50)        //перемещение посылок
         {
             if (parcel_spisok.size() > 0)         //имеются посылки для отправления
