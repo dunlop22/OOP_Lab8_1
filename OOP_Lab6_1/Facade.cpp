@@ -2,6 +2,24 @@
 
 void Facade::get_new_parcel(vector<Parcel> parcel_spisok, int num_parcel)
 {
+    int lang;   //флажок для выбора языка интерфейса
+    do
+    {
+        system("cls");
+        cout << "Выберите язык интерфейса / Select the interface language\n\n1) Русский язык\n2) English Language\n\n";
+        lang = _getch();
+    } while (lang != 49 && lang != 50);
+
+    if (lang == 49) //переключение на русский язык интерфейса
+    {
+
+    }
+    else if (lang == 50)    //переключение на английский язык интерфейса
+    {
+
+    }
+
+
     int new_parcel; ///количество новых посылок
     do
     {
