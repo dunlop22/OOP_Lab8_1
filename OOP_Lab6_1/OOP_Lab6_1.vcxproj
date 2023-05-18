@@ -162,6 +162,7 @@
     <ClCompile Include="Small_Cont.cpp" />
     <ClCompile Include="Solver.cpp" />
     <ClCompile Include="Transport.cpp" />
+    <ClCompile Include="Transport_Company.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adapter_Parcel.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="Small_Cont.h" />
     <ClInclude Include="Solver.h" />
     <ClInclude Include="Transport.h" />
+    <ClInclude Include="Transport_Company.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
