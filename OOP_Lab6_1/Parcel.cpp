@@ -47,7 +47,7 @@ string Parcel::get_town()
 	return (this->town_recipient);
 }
 
-void Parcel::set_information()
+void Parcel::set_information(Language* lang)
 {
 	//генерация индивидуального 8-значного номера посылки (ID)
 	generate_id();
@@ -55,8 +55,9 @@ void Parcel::set_information()
 	do
 	{
 		system("cls");
-		cout << "Ввод информации о новой посылке\n\nУникальный номер посылки (id): " << this->id;
-		cout << "\n\nВведите город отправителя: ";
+		lang->print_info();
+			cout << this->id;		//вывод уникального номера посылки
+		lang->print_town_1();
 		getline(cin, this->town_sender);
 	} while (this->town_sender == "");
 
@@ -64,36 +65,36 @@ void Parcel::set_information()
 	int num_town;
 	do
 	{
-		cout << "\n\n1) Барнаул\n2) Москва\n3) Новосибирск\n4) Владивосток\n5) Нижний Новгород";
-		cout << "\n\nВыберите город получателя: ";
+		lang->print_spisok_town();
+		lang->print_town_2();
 		num_town = _getch();
 	} while (num_town < 49 || num_town >(town.size() + 48));
 	this->town_recipient = town[num_town - 49];
 	cout << "(" << this->town_recipient << ")";
-
-	cout << "\n\nВведите ширину (м.): ";
+	
+	lang->print_gabarit_1();
 	cin >> this->shirina;
 	//this->shirina = 8 + rand() % (54 - 8 + 1);		//генерация случайного значения объема (для теста)
-
-	cout << "\nВведите высоту (м.): ";
+	
+	lang->print_gabarit_2();
 	cin >> this->visota;
 	//this->visota = 8 + rand() % (54 - 8 + 1);		//генерация случайного значения объема (для теста)
-
-	cout << "\nВведите длину (м.): ";
+	
+	lang->print_gabarit_3();
 	cin >> this->dlina;
 	//this->dlina = 8 + rand() % (54 - 8 + 1);		//генерация случайного значения объема (для теста)
-
-	cout << "\nИтоговый объем (м^3): ";
+	
+	lang->print_size();
 	this->obem = this->dlina * this->visota * this->shirina;
 	cout << this->obem;
 	//this->obem = 8 + rand() % (54 - 8 + 1);		//генерация случайного значения объема (для теста)
-
-	cout << "\n\nВведите вес (кг.): ";
+	
+	lang->print_weight();
 	cin >> this->weight;
 	//this->weight = 8 + rand() % (54 - 8 + 1);		//генерация случайного значения объема (для теста)
 	do
 	{
-		cout << "\n\nПосылка опасная? (1 - ДА, 2 - НЕТ): ";
+		lang->print_danger();
 		this->danger = _getch();
 	} while (this->danger != 49 && this->danger != 50);
 	this->danger = this->danger - 48;
@@ -101,14 +102,13 @@ void Parcel::set_information()
 
 	if (this->danger == 1)
 	{
-		cout << "Да";
+		lang->print_yes();
 	}
 	else
 	{
-		cout << "Нет";
+		lang->print_no();
 	}
-
-	cout << "\n\nЛюбая клавиша для подтверждения";
+	lang->any_key_to_cont();
 	cin.ignore();
 	_getch();
 

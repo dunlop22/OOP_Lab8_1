@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include "Language.h"
 using namespace std;
 class Parcel
 {
@@ -37,7 +38,7 @@ public:
 	string get_town();
 
 	//внесение информации о посылке
-	virtual void set_information();
+	virtual void set_information(Language* lang);
 
 	vector <double> get_dimensions();
 };

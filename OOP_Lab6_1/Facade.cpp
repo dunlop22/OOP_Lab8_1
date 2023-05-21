@@ -1,30 +1,17 @@
 #include "Facade.h"
 
-void Facade::get_new_parcel(vector<Parcel> parcel_spisok, int num_parcel)
+Facade::Facade(Language* lang)
 {
-    int lang;   //флажок для выбора языка интерфейса
-    do
-    {
-        system("cls");
-        cout << "Выберите язык интерфейса / Select the interface language\n\n1) Русский язык\n2) English Language\n\n";
-        lang = _getch();
-    } while (lang != 49 && lang != 50);
+    languag = lang; //установка начального языка (по умолчанию: русский)
+}
 
-    if (lang == 49) //переключение на русский язык интерфейса
-    {
-
-    }
-    else if (lang == 50)    //переключение на английский язык интерфейса
-    {
-
-    }
-
-
+void Facade::get_new_parcel(vector<Parcel> *parcel_spisok, int *num_parcel)
+{
     int new_parcel; ///количество новых посылок
     do
     {
         system("cls");
-        cout << "Введите количество новых посылок: ";
+        languag->print_num_parc();
         cin >> new_parcel;
     } while (new_parcel < 0);
     cin.get();
@@ -35,13 +22,18 @@ void Facade::get_new_parcel(vector<Parcel> parcel_spisok, int num_parcel)
         Parcel* Prox;
         do
         {
-            parce_temp.set_information();
+            parce_temp.set_information(languag);
             Prox = new ProxyParcel(&parce_temp);
             //} while (!(Prox->check_info()) || !(Prox->send_parcel()));        //минимальная  проверка. Опасный груз не может быть больше 50усл.ед.
         } while (!(Prox->check_info()));        //минимальная  проверка. Опасный груз не может быть больше 50усл.ед.
 
-        parcel_spisok.push_back(parce_temp);
+       (*parcel_spisok).push_back(parce_temp);
     }
-    num_parcel = num_parcel + new_parcel;       //общее количество посылок (вместе с только что добавленными)
+    *num_parcel = *num_parcel + new_parcel;       //общее количество посылок (вместе с только что добавленными)
 
+}
+
+void Facade::set_language(Language* lang)   //смена языка (Rus -> Eng)
+{
+    languag = lang;
 }
