@@ -15,12 +15,6 @@ class FlyWeight_Factory
 	vector <string> town_send = {"Москва", "Владивосток", "Барнаул", "Хабаровск", "Тюмень"};
 	vector <FlyWeight	> FlyWeights;
 	
-	/*
-	typedef std::map<int, FlyWeight* > FlyWeights;
-	FlyWeights mFlyWeights;
-	FlyWeight* oneFlyWeight;     // возможно уже имеющийся
-					  // образец, полученный  
-					  */
 private:
 	
 	int random_num(int max);
